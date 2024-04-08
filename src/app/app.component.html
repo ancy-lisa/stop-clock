@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 border border-dark">
+      <div class="row m-5">
+          <h5 class="text-center">{{status}}</h5>
+          <!-- <h6 class="text-center" *ngIf="displayTime">TOTAL TIMING = {{hour}} : {{minutes}} : {{second}}</h6> -->
+        <div class="col-4">
+          <div class="card border-light border border-5 bg-black">
+            <div class="card-header fw-bold text-center text-light">Hour</div>
+            <div class="card-body bg-black text-danger fs-1 fw-bold text-center" [ngStyle]="{'background-color':hourcolor && minutes==0 &&!timerPassed?'white':'black'}">
+              {{hour}}
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card border-light border border-5 bg-black">
+            <div class="card-header fw-bold text-center text-light">minute</div>
+            <div class="card-body text-danger fs-1 fw-bold text-center" [ngStyle]="{'background-color':mincolor && second==0 &&!timerPassed?'white':'black'}">
+            {{minutes}}
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card border-light border border-5 bg-black">
+            <div class="card-header fw-bold text-center text-light">second</div>
+            <div class="card-body text-danger fs-1 fw-bold text-center" >
+             {{second}}
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-3">
+          <div class="card border-light border border-5 bg-black ">
+            <div class="card-header fw-bold text-center text-light">millisecond</div>
+            <div class="card-body text-danger fs-1 fw-bold text-center">
+              {{millisec}}
+            </div>
+          </div>
+        </div> -->
+      </div>
+     
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="row border border-dark p-3">
+        <div class="col-4 text-center">
+            <button class="btn" (click)="restartTimer()">
+              <i class="fa-solid fa-circle-stop fa-3x"></i>
+            </button>
+        </div>
+        <div class="col-4 text-center">
+          <button class="btn" (click)="startTimer()">
+            <i class="fa-solid fa-circle-play fa-3x"></i>
+          </button>
+        </div>
+        <div class="col-4 text-center">
+          <button class="btn" (click)="stopTimer()">
+            <i class="fa-solid fa-circle-pause fa-3x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div>
+
+    <router-outlet></router-outlet>
